@@ -70,8 +70,10 @@ public class Window {
     }
     // KeyListener class, used for key input listening
     private class Keys implements KeyListener {
+        // Store key presses or releases
         private HashMap<Character, Boolean> keysPressed;
 
+        // Constructor
         public Keys() {
             keysPressed = new HashMap<>();
         }
@@ -80,15 +82,14 @@ public class Window {
         public void keyPressed(KeyEvent e) {
             keysPressed.put(e.getKeyChar(), true);
         }
-
         @Override
         public void keyReleased(KeyEvent e) {
             keysPressed.put(e.getKeyChar(), false);
         }
-
         @Override
         public void keyTyped(KeyEvent e) {}
         
+        // Get current key state (pressed / released)
         public boolean keyPressed(char key) {
             try {
                 return keysPressed.get(key);
